@@ -10,7 +10,7 @@ public class ContextTest {
 	@Test
 	public void testInitString() {
 
-		Assert.assertEquals("e", mm.init("test"));
+		Assert.assertEquals("wrong", mm.init("test"));
 	}
 
 }

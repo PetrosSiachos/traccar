@@ -270,7 +270,7 @@ public final class Context {
         } catch (Exception e) {
             config = new Config();
             Log.setupDefaultLogger();
-            throw e;
+            System.out.println("wrong");
         }
 
         if (config.getBoolean("logger.enable")) {
