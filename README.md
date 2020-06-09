@@ -1,5 +1,7 @@
 # [Traccar](https://www.traccar.org)
 [![Build Status](https://travis-ci.org/traccar/traccar.svg?branch=master)](https://travis-ci.org/traccar/traccar)
+[![codecov](https://codecov.io/gh/PetrosSiachos/traccar/branch/master/graph/badge.svg)](https://codecov.io/gh/PetrosSiachos/traccar)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Overview
 
