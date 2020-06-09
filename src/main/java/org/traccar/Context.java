@@ -264,7 +264,7 @@ public final class Context {
     }
 
     public static String init(String configFile) throws Exception {
-		string s = "ok";
+		String s = "ok";
         try {
             config = new Config(configFile);
             System.out.println("ok");
