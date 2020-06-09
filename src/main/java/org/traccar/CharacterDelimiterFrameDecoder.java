@@ -26,7 +26,7 @@ public class CharacterDelimiterFrameDecoder extends DelimiterBasedFrameDecoder {
 	       try{
 			   byte[] buf = {(byte) delimiter};
 	        return Unpooled.wrappedBuffer(buf);
-	    }catch (IOException e) {
+	    }catch (Exception e) {
 				e.printStackTrace();
 			}
 	}
