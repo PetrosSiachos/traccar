@@ -9,7 +9,7 @@ public class BaseProtocolTest {
 	
 	@Test (expected = RuntimeException.class)
 	public void testSendTextCommand() {
-		mm.sendTextCommand(0,0);
+		mm.sendTextCommand("test","test");
 	}
 
 }
