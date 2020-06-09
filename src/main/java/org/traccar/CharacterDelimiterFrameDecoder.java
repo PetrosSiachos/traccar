@@ -18,6 +18,7 @@ package org.traccar;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import java.io.IOException;
 
 public class CharacterDelimiterFrameDecoder extends DelimiterBasedFrameDecoder {
 
