@@ -74,7 +74,7 @@ public final class Context {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Context.class);
 
-    private Context() {
+    public Context() {
     }
 
     private static Config config;
