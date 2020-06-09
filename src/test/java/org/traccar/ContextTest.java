@@ -1,6 +1,6 @@
 package org.traccar;
 
-import static org.junit.Assert.*;
+import static org.junit.*;
 
 import org.junit.Test;
 import org.traccar.Context;
@@ -8,10 +8,10 @@ import org.junit.Assert;
 
 public class ContextTest {
 	Context mm = new Context();
-	@Test
+	@Test (expected = Exception.class)
 	public void testInitString() {
 
-		Assert.assertEquals("wrong", mm.init("test"));
+		mm.init("test");
 	}
 
 }

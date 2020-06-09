@@ -263,15 +263,15 @@ public final class Context {
 
     }
 
-    public static String init(String configFile) throws Exception {
-		String s = "ok";
+    public static void init(String configFile) throws Exception {
+		
         try {
             config = new Config(configFile);
-            System.out.println("ok");
+          
         } catch (Exception e) {
             config = new Config();
             Log.setupDefaultLogger();
-            System.out.println("wrong");
+            
 			throw e;
         }
 
@@ -344,7 +344,7 @@ public final class Context {
         driversManager = new DriversManager(dataManager);
 
         commandsManager = new CommandsManager(dataManager, config.getBoolean("commands.queueing"));
-	return s;
+	
     }
 
     private static void initEventsModule() {
