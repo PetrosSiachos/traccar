@@ -263,7 +263,7 @@ public final class Context {
 
     }
 
-    public static init(String configFile) throws Exception {
+    public static String init(String configFile) throws Exception {
 
         try {
             config = new Config(configFile);
