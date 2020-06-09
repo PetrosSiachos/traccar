@@ -272,6 +272,7 @@ public final class Context {
             config = new Config();
             Log.setupDefaultLogger();
             System.out.println("wrong");
+			throw e;
         }
 
         if (config.getBoolean("logger.enable")) {
