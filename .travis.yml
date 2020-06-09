@@ -1,6 +1,10 @@
 language: java
 jdk:
   - openjdk8
+  
+# Handle git submodules yourself
+git:
+    submodules: false
 
 script: "mvn cobertura:cobertura"
 
