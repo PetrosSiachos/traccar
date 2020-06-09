@@ -22,9 +22,13 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 public class CharacterDelimiterFrameDecoder extends DelimiterBasedFrameDecoder {
 
     private static ByteBuf createDelimiter(char delimiter) {
-        byte[] buf = {(byte) delimiter};
-        return Unpooled.wrappedBuffer(buf);
-    }
+	       try{
+			   byte[] buf = {(byte) delimiter};
+	        return Unpooled.wrappedBuffer(buf);
+	    }catch (IOException e) {
+				e.printStackTrace();
+			}
+	}
 
     private static ByteBuf createDelimiter(String delimiter) {
         byte[] buf = new byte[delimiter.length()];
