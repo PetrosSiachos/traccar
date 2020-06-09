@@ -264,7 +264,7 @@ public final class Context {
     }
 
     public static String init(String configFile) throws Exception {
-
+		string s = "ok";
         try {
             config = new Config(configFile);
             System.out.println("ok");
@@ -343,7 +343,7 @@ public final class Context {
         driversManager = new DriversManager(dataManager);
 
         commandsManager = new CommandsManager(dataManager, config.getBoolean("commands.queueing"));
-
+	return s;
     }
 
     private static void initEventsModule() {
