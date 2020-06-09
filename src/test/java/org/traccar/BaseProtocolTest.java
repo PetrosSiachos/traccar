@@ -9,7 +9,7 @@ public class BaseProtocolTest {
 	
 	@Test (expected = RuntimeException.class)
 	public void testSendTextCommand() {
-		mm.SendTextCommand(0, traccar);
+		mm.sendTextCommand(0,0);
 	}
 
 }
