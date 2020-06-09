@@ -7,10 +7,10 @@ import org.traccar.Context;
 
 public class ContextTest {
 	Context mm = new Context();
-	@Test (expected = Exception.class)
+	@Test
 	public void testInitString() {
-		mm.init("test");
-		
+
+		Assert.assertEquals("e", mm.init("test"));
 	}
 
 }
