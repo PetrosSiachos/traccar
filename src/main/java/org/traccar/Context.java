@@ -267,6 +267,7 @@ public final class Context {
 
         try {
             config = new Config(configFile);
+            System.out.println("ok");
         } catch (Exception e) {
             config = new Config();
             Log.setupDefaultLogger();
