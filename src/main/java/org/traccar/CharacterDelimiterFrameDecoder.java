@@ -18,17 +18,14 @@ package org.traccar;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import java.io.IOException;
 
 public class CharacterDelimiterFrameDecoder extends DelimiterBasedFrameDecoder {
 
     private static ByteBuf createDelimiter(char delimiter) {
-	       try{
+
 			   byte[] buf = {(byte) delimiter};
 	        return Unpooled.wrappedBuffer(buf);
-	    }catch (Exception e) {
-				e.printStackTrace();
-			}
+	    
 	}
 
     private static ByteBuf createDelimiter(String delimiter) {
