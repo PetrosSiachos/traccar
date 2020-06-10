@@ -19,10 +19,24 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+/**
+ * A class that creates a xml file in order
+ * to export Sytem log info. 
+ * @author siachos_petros (siachospetros@gmail.com)
+ */
+
 public class SystemDataExport {
 	
-	public static final String xmlFilePath = "C:\\Users\\nikos7\\Desktop\\files\\xmlfile.xml";
-	 
+	public static final String xmlFilePath = "C:\\Users\\Desktop\\files\\xmlfile.xml";
+	
+	/**
+	 * Receives an Integer number and creates a xml file in order
+	 * to export Sytem log info. 
+	 * @param number the integer input number
+	 * @return 
+	 * A creation of a xml file
+	 * @exception IllegalArgumentException when input is NOT 0 or NOT 1
+	 */	
     public static void xmlcreator(int ok) {
     	if (ok ==1) {
         try {
