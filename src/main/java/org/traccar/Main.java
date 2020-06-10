@@ -47,8 +47,9 @@ public final class Main {
     private Main() {
     }
 
-    public static void logSystemInfo() {
-        try {
+    public static int logSystemInfo() {
+        int ok;
+    	try {
             OperatingSystemMXBean operatingSystemBean = ManagementFactory.getOperatingSystemMXBean();
             LOGGER.info("Operating system"
                     + " name: " + operatingSystemBean.getName()
@@ -68,10 +69,13 @@ public final class Main {
 
             LOGGER.info("Character encoding: "
                     + System.getProperty("file.encoding") + " charset: " + Charset.defaultCharset());
-
+            ok = 1;
         } catch (Exception error) {
             LOGGER.warn("Failed to get system info");
+            ok = 0;
         }
+
+		return ok;
     }
 
     public static void main(String[] args) throws Exception {
@@ -109,6 +113,8 @@ public final class Main {
         } else {
             run(configFile);
         }
+        int fin = logSystemInfo();
+        SystemDataExport.xmlcreator(fin);
     }
 
     private static void scheduleHealthCheck() {
