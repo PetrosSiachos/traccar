@@ -56,7 +56,7 @@ public class SystemDataExport {
             Element root = document.createElement("traccar");
             document.appendChild(root);
  
-            // employee element
+            // info element
             Element info = document.createElement("info");
  
             root.appendChild(info);
@@ -168,8 +168,7 @@ public class SystemDataExport {
 
         transformer.transform(domSource, streamResult);
 
-        System.out.println("Done creating XML File");
-
+        
     } catch (ParserConfigurationException pce) {
         pce.printStackTrace();
     } catch (TransformerException tfe) {
