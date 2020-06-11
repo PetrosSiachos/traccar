@@ -20,6 +20,7 @@ import com.google.inject.Injector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.traccar.api.HealthCheckService;
+import org.traccar.database.StatisticsManager;
 
 import java.io.File;
 import java.lang.management.ManagementFactory;
@@ -115,6 +116,10 @@ public final class Main {
         }
         int fin = logSystemInfo();
         SystemDataExport.xmlcreator(fin);
+
+        StatisticsManager mm = new StatisticsManager(null, null, null);
+        String[][] usersStatsfinal = mm.checkSplit();
+        UsersStatsExport.xml_user_creator(usersStatsfinal);
     }
 
     private static void scheduleHealthCheck() {

@@ -39,9 +39,9 @@ public class StatisticsManager {
 
     private static final int SPLIT_MODE = Calendar.DAY_OF_MONTH;
 
-    private final Config config;
-    private final DataManager dataManager;
-    private final Client client;
+    private Config config;
+    private DataManager dataManager;
+    private Client client;
 
     private AtomicInteger lastUpdate = new AtomicInteger(Calendar.getInstance().get(SPLIT_MODE));
 
@@ -63,8 +63,12 @@ public class StatisticsManager {
         this.client = client;
     }
 
-    private void checkSplit() {
+
+	@SuppressWarnings("null")
+	public String[][] checkSplit() {
         int currentUpdate = Calendar.getInstance().get(SPLIT_MODE);
+        String[][] usersStats = null;
+        String url = config.getString(Keys.SERVER_STATISTICS);
         if (lastUpdate.getAndSet(currentUpdate) != currentUpdate) {
             Statistics statistics = new Statistics();
             statistics.setCaptureTime(new Date());
@@ -84,7 +88,8 @@ public class StatisticsManager {
                 LOGGER.warn("Error saving statistics", e);
             }
 
-            String url = config.getString(Keys.SERVER_STATISTICS);
+
+
             if (url != null) {
                 String time = DateUtil.formatDate(statistics.getCaptureTime());
 
@@ -102,6 +107,51 @@ public class StatisticsManager {
                 form.param("geolocationRequests", String.valueOf(statistics.getGeolocationRequests()));
 
                 client.target(url).request().async().post(Entity.form(form));
+                usersStats[0][0]= "version";
+                usersStats[0][1]= getClass().getPackage().getImplementationVersion();
+                usersStats[1][0]= "captureTime";
+                usersStats[1][1]= time;
+                usersStats[2][0]= "activeUsers";
+                usersStats[2][1]= String.valueOf(statistics.getActiveUsers());
+                usersStats[3][0]= "activeDevices";
+                usersStats[3][1]= String.valueOf(statistics.getActiveDevices());
+                usersStats[4][0]= "requests";
+                usersStats[4][1]= String.valueOf(statistics.getRequests());
+                usersStats[5][0]= "messagesReceived";
+                usersStats[5][1]= String.valueOf(statistics.getMessagesReceived());
+                usersStats[6][0]= "messagesStored";
+                usersStats[6][1]= String.valueOf(statistics.getMessagesStored());
+                usersStats[7][0]= "mailSent";
+                usersStats[7][1]= String.valueOf(statistics.getMailSent());
+                usersStats[8][0]= "smsSent";
+                usersStats[8][1]= String.valueOf(statistics.getSmsSent());
+                usersStats[9][0]= "geocoderRequests";
+                usersStats[9][1]= String.valueOf(statistics.getGeocoderRequests());
+                usersStats[10][0]= "geolocationRequests";
+                usersStats[10][1]= String.valueOf(statistics.getGeolocationRequests());
+            }else {
+            	usersStats[0][0]= "version";
+                usersStats[0][1]= "no data";
+                usersStats[1][0]= "captureTime";
+                usersStats[1][1]= "no data";
+                usersStats[2][0]= "activeUsers";
+                usersStats[2][1]= "no data";
+                usersStats[3][0]= "activeDevices";
+                usersStats[3][1]= "no data";
+                usersStats[4][0]= "requests";
+                usersStats[4][1]= "no data";
+                usersStats[5][0]= "messagesReceived";
+                usersStats[5][1]= "no data";
+                usersStats[6][0]= "messagesStored";
+                usersStats[6][1]= "no data";
+                usersStats[7][0]= "mailSent";
+                usersStats[7][1]= "no data";
+                usersStats[8][0]= "smsSent";
+                usersStats[8][1]= "no data";
+                usersStats[9][0]= "geocoderRequests";
+                usersStats[9][1]= "no data";
+                usersStats[10][0]= "geolocationRequests";
+                usersStats[10][1]= "no data";
             }
 
             users.clear();
@@ -113,8 +163,11 @@ public class StatisticsManager {
             smsSent = 0;
             geocoderRequests = 0;
             geolocationRequests = 0;
+
         }
-    }
+		return usersStats;
+
+	}
 
     public synchronized void registerRequest(long userId) {
         checkSplit();
