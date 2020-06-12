@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * An class that provides test case for the
+ * UsersStatsExport class, for demonstrating Unit Testing.
+ * @author siachos_petros (siachospetros@gmail.com)
+ */
 public class UsersStatsExportTest {
 		String[][] usersStats = null;
 		UsersStatsExport kk = new UsersStatsExport();
