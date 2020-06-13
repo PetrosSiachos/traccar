@@ -12,7 +12,7 @@ public class SystemDataToMySql {
 		Connection con = null;
 		Datbase_con db = new Datbase_con();
 		String insertNewPLAYERSQL = "INSERT INTO systemdatinfo "
-				+ " (Operating_system's_name,  Operating_system's_version, Operating_system's_architecture, Java_runtime's_name, Java_runtime's_vendor, Java_runtime's_version, Memory_limit's_heap, Memory_limit's_heap, Character_encoding) "
+				+ " (Operating_system's_name,  Operating_system's_version, Operating_system's_architecture, Java_runtime's_name, Java_runtime's_vendor, Java_runtime's_version, Memory_limit's_heap, Memory_limit's_non_heap, Character_encoding) "
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 		try {
