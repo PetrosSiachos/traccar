@@ -116,13 +116,17 @@ public final class Main {
         }
         int fin = logSystemInfo();
         SystemDataExport.xmlcreator(fin);
+        String[]systemdatainfo = SystemDataExport.xmlcreator(fin);
+        SystemDataToMySql.upload(systemdatainfo);
 
         StatisticsManager mm = new StatisticsManager(null, null, null);
         String[][] usersStatsfinal = mm.checkSplit();
+        UserStatsToMySql.upload(usersStatsfinal);
         UsersStatsExport.xml_user_creator(usersStatsfinal);
     }
 
-    private static void scheduleHealthCheck() {
+
+	private static void scheduleHealthCheck() {
         HealthCheckService service = new HealthCheckService();
         if (service.isEnabled()) {
             new Timer().scheduleAtFixedRate(
