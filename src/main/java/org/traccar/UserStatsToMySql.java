@@ -5,7 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
-
+/**
+ * A class that uploads User's Stats 
+ * to Mysql database.
+ * @author siachos_petros (siachospetros@gmail.com)
+ */
 public class UserStatsToMySql {
 	public static void upload(String [][] usersStats) throws Exception {
 

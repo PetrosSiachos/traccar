@@ -5,6 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
+/**
+ * A class that uploads System's data 
+ * to MySql database.
+ * @author siachos_petros (siachospetros@gmail.com)
+ */
 
 public class SystemDataToMySql {
 	public static void upload(String [] systemdatainfo) throws Exception {

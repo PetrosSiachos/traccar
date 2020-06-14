@@ -4,6 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * A class that creates the connection with 
+ * the Mysql database.
+ * @author siachos_petros (siachospetros@gmail.com)
+ */
+
 public class Datbase_con {
 	/* Database connection settings, change dbName, dbusername, dbpassword */
 	private final String dbServer = "something";
