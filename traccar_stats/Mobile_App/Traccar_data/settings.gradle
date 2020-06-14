@@ -1,0 +1,2 @@
+rootProject.name='Traccar_data'
+include ':app'
