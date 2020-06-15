@@ -65,55 +65,55 @@ public class SystemDataExport {
 
 
             // Operating system's name element
-            Element Name = document.createElement("Operating system's name");
+            Element Name = document.createElement("Operating_system_s_name");
             Name.appendChild(document.createTextNode(operatingSystemBean.getName()));
             info.appendChild(Name);
             SystemData[0] = operatingSystemBean.getName();
 
             // Operating system's version element
-            Element version = document.createElement("Operating system's version");
+            Element version = document.createElement("Operating_system_s_version");
             version.appendChild(document.createTextNode(operatingSystemBean.getVersion()));
             info.appendChild(version);
             SystemData[1] = operatingSystemBean.getVersion();
 
             // Operating system's architecture element
-            Element arhit = document.createElement("Operating system's architecture");
+            Element arhit = document.createElement("Operating_systems_architecture");
             arhit.appendChild(document.createTextNode(operatingSystemBean.getArch()));
             info.appendChild(arhit);
             SystemData[2] = operatingSystemBean.getArch();
 
             // Java runtime's name elements
-            Element name2 = document.createElement("Java runtime's name");
+            Element name2 = document.createElement("Java_runtimes_name");
             name2.appendChild(document.createTextNode(runtimeBean.getVmName()));
             info.appendChild(name2);
             SystemData [3] = runtimeBean.getVmName();
 
             // Java runtime's vendor elements
-            Element vendor = document.createElement("Java runtime's vendor");
+            Element vendor = document.createElement("Java_runtimes_vendor");
             vendor.appendChild(document.createTextNode(runtimeBean.getVmVendor()));
             info.appendChild(vendor);
             SystemData [4] = runtimeBean.getVmVendor();
 
             // Java runtime's version elements
-            Element version2 = document.createElement("Java runtime's version");
+            Element version2 = document.createElement("Java_runtimes_version");
             version2.appendChild(document.createTextNode(runtimeBean.getVmVersion()));
             info.appendChild(version2);
             SystemData[5] = runtimeBean.getVmVersion();
 
             // Memory limit's heap elements
-            Element heap = document.createElement("Memory limit's heap");
+            Element heap = document.createElement("Memory_limits_non_heap");
             heap.appendChild(document.createTextNode(memoryBean.getHeapMemoryUsage().getMax() / (1024 * 1024) + "mb"));
             info.appendChild(heap);
             SystemData[6] = (memoryBean.getHeapMemoryUsage().getMax() / (1024 * 1024) + "mb");
 
             // Memory limit's heap elements
-            Element non_heap = document.createElement("Memory limit's heap");
+            Element non_heap = document.createElement("Memory_limits_non_heap");
             non_heap.appendChild(document.createTextNode(memoryBean.getNonHeapMemoryUsage().getMax() / (1024 * 1024) + "mb"));
             info.appendChild(non_heap);
             SystemData[7] = (memoryBean.getNonHeapMemoryUsage().getMax() / (1024 * 1024) + "mb");
 
             // Character encoding elements
-            Element Character_encoding = document.createElement("Character encoding");
+            Element Character_encoding = document.createElement("Character_encoding");
             Character_encoding.appendChild(document.createTextNode(System.getProperty("file.encoding") + " charset: " + Charset.defaultCharset()));
             info.appendChild(Character_encoding);
             SystemData[8] = (System.getProperty("file.encoding") + " charset: " + Charset.defaultCharset());
